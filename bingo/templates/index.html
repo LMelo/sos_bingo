@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+    <div class="jumbotron" style="color: #006341; background-color: #F4F4EF">
+        <h1 class="text-center">
+            <strong>Bem vindo ao Bingo Beneficente da</strong><br/><br/>
+            <img width="500px;" alt="SOS"
+{#                 src="http://3.bp.blogspot.com/-B_BT3qZ6vWo/UglEGC8Uf3I/AAAAAAAABI0/0t8btXOaOiY/s1600/009+logo_sos+-+C%25C3%25B3pia.png">#}
+                src="{{ STATIC_URL }}bootstrap3/img/sos_logo.png"/>
+        </h1>
+    </div>
+    <div>
+        <p class="text-center">
+            <a class="btn btn-default btn-lg" style="background-color: #FF9900"
+               href="{% url 'bingo' %}" role="button">
+                <strong>JOGAR</strong>
+            </a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block base_footer %}
+    <footer class="text-center">
+        <hr/>
+        <address style="background-color: #006341; color: #ffffff; font-size: 25px;">
+            Monsenhor Messias, Nº: 122 -
+            Centro/Sete Lagoas<br/>
+            <strong>Telefone:</strong> 3776-6600
+        </address>
+    </footer>
+{% endblock %}

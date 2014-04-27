@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+    <table class="table table-bordered text-center" style="font-size: 35px;">
+        <caption><h1>Cartela</h1></caption>
+        <thead style="background-color: #006341; color: #ffffff">
+            <tr>
+                <th class="text-center"><strong>B</strong></th>
+                <th class="text-center"><strong>I</strong></th>
+                <th class="text-center"><strong>N</strong></th>
+                <th class="text-center"><strong>G</strong></th>
+                <th class="text-center"><strong>O</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in numbers %}
+                {% if forloop.counter0|divisibleby:5 %}
+                    <tr>
+                {% endif %}
+
+                <td>{{ i }}</td>
+
+                {% if forloop.counter|divisibleby:5 %}
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+    <form method="post">
+        {% csrf_token %}
+        <div class="text-center">
+            <button type="submit"class="btn btn-default">Nova Cartela</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                    <div class="text-center">
+                        <b style="font-size: 350px; color: #E60000">{{ value }}</b>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-lg btn-default">Sortear</button>
+                    </div>
+                </div>
+                <div class="col-md-6 column">
+                    <div>
+                        {% if numbers_sorted %}
+                            <h2 class="text-justify">
+                                <strong>Números Sorteados</strong>
+                                <hr/>
+                            </h2>
+                            <div style="font-size: 35px;">
+                                <div class="text-justify">
+                                    {% for each_sorted_number in numbers_sorted %}
+                                        <span class="badge" style="background-color: forestgreen; font-size: 30px;">
+                                    {{ each_sorted_number }}
+                                </span>
+                                        {% if forloop.counter|divisibleby:6 %}
+                                            <br/>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
